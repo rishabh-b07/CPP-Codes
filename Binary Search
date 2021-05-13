@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+    //binary search 
+    //Array must be sorted
+
+
+int binary_search(int a[], int n, int key){
+    int start = 0;
+    int end = n-1;
+
+    while(start<=end)
+    {
+        int mid = (start+end)/2;
+
+        if(a[mid]==key)
+        {
+            return mid;
+        }
+
+        else if(a[mid]<key)
+        {
+            start=mid+1;
+        }
+
+        else
+        {
+            end=mid-1;
+        }
+    }
+
+
+    return -1;
+
+
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0; i<n; i++)cin>>a[i];
+
+    int target;
+    cin>>target;
+
+    cout<<binary_search(a,n,target);
+
+    return 0;
+}
